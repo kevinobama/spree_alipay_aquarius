@@ -1,0 +1,12 @@
+
+<% if @order.currency == 'CNY' || @order.currency == 'RMB' %>
+    <%=image_tag('alipay.png', :alt=> I18n.t('spree.checkout.payment.alipay.partner_trade'))%>
+  <br/>
+  <%= "#{I18n.t('spree.alipay.click_and_pay')} (#{I18n.t('spree.alipay.partner_trade')})"%>
+<% else %>
+  <%= I18n.t('spree.alipay.error_non_rmb')  %>
+<% end %>
+
+<script>
+  SpreeAlipayPayment.paymentMethodID = "<%= payment_method.id %>"  
+ </script>
